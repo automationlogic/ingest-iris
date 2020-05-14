@@ -99,11 +99,11 @@ def callback(message):
 
 def create_table():
     schema = [
-        bigquery.SchemaField("Feature_1", "FLOAT", mode="NULLABLE"),
-        bigquery.SchemaField("Feature_2", "FLOAT", mode="NULLABLE"),
-        bigquery.SchemaField("Feature_3", "FLOAT", mode="NULLABLE"),
-        bigquery.SchemaField("Feature_4", "FLOAT", mode="NULLABLE"),
-        bigquery.SchemaField("Name", "STRING", mode="NULLABLE"),
+        bigquery.SchemaField("Sepal_Length", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Sepal_Width", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Petal_Length", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Petal_Width", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Flower_Type", "STRING", mode="NULLABLE"),
     ]
 
 
