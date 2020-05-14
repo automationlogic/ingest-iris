@@ -79,9 +79,6 @@ def callback(message):
         for line in lines:
             reader = csv.reader([line])
             for row in reader:
-                d = datetime.datetime.strptime(row[1],'%Y-%m-%dT%H:%M:%S')
-                row[1] = d.strftime('%Y-%m-%d %H:%M:%S')
-
                 tuple_row = tuple(row)
                 rows_to_insert.append(tuple_row)
 
@@ -102,12 +99,11 @@ def callback(message):
 
 def create_table():
     schema = [
-        bigquery.SchemaField("Station", "STRING", mode="NULLABLE"),
-        bigquery.SchemaField("Date", "DATETIME", mode="NULLABLE"),
-        bigquery.SchemaField("Latitude", "STRING", mode="NULLABLE"),
-        bigquery.SchemaField("Longitude", "STRING", mode="NULLABLE"),
-        bigquery.SchemaField("Wind_Dir", "STRING", mode="NULLABLE"),
-        bigquery.SchemaField("Wind_Speed", "STRING", mode="NULLABLE"),
+        bigquery.SchemaField("Feature_1", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Feature_2", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Feature_3", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Feature_4", "FLOAT", mode="NULLABLE"),
+        bigquery.SchemaField("Name", "STRING", mode="NULLABLE"),
     ]
 
 

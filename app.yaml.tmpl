@@ -1,10 +1,10 @@
 runtime: python37
-service: ingest-ncei-wind
+service: ingest-iris
 entrypoint: gunicorn -b :8080 -w 2 app.main:app
 env_variables:
-    URL: https://www.ncei.noaa.gov/access/services/data/v1?dataset=global-marine&dataTypes=WIND_DIR,WIND_SPEED&stations=AUCE&startDate=2016-01-01&endDate=2016-01-02&boundingBox=90,-180,-90,180
+    URL: https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data
     PROJECT: $ANALYTICS_PROJECT    # replace in cloud build step
-    TOPIC: ncei-wind
-    SUBSCRIPTION: ncei-wind
-    DATASET: ncei
-    TABLE: wind
+    TOPIC: iris
+    SUBSCRIPTION: iris
+    DATASET: iris
+    TABLE: iris
