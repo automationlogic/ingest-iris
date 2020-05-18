@@ -35,7 +35,7 @@ def ingest():
     print('Publishing data to {} ...'.format(topic_path))
     count = 0
     chunk = []
-    for line in lines[1:]:
+    for line in lines:
         if count < chunk_size:
             chunk.append(line)
             count += 1
