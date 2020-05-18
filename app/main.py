@@ -36,14 +36,15 @@ def ingest():
     count = 0
     chunk = []
     for line in lines:
-        if count < chunk_size:
-            chunk.append(line)
-            count += 1
-        if count == chunk_size:
-            bytes_chunk = bytes("\r\n".join(chunk).encode('utf-8'))
-            publisher.publish(topic_path, data=bytes_chunk)
-            chunk = []
-            count = 0
+        if len(line) > 0:
+            if count < chunk_size:
+                chunk.append(line)
+                count += 1
+            if count == chunk_size:
+                bytes_chunk = bytes("\r\n".join(chunk).encode('utf-8'))
+                publisher.publish(topic_path, data=bytes_chunk)
+                chunk = []
+                count = 0
     if count > 0:
         bytes_chunk = bytes("\r\n".join(chunk).encode('utf-8'))
         publisher.publish(topic_path, data=bytes_chunk)
