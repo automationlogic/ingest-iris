@@ -115,8 +115,8 @@ def create_table():
         try:
             table = bq_client.create_table(table)
             print("Created table {}.{}.{}".format(table.project, table.dataset_id, table.table_id))
-            print("Going to sleep for 60 seconds to ensure data availability in newly created table")
-            time.sleep(60)
+            print("Going to sleep for 90 seconds to ensure data availability in newly created table")
+            time.sleep(90)
         except Conflict:
             pass
 
