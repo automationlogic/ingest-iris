@@ -61,7 +61,7 @@ def subscribe():
     print('Listening for messages on {} ...'.format(subscription_path))
     loop = True
     while loop:
-        response = subscriber.pull(subscription_path, 10)
+        response = subscriber.pull(request={"subscription": subscription_path, "max_messages": 10})
         if len(response.received_messages) > 0:
             time.sleep(1)
         else:
